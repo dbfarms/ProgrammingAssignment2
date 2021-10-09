@@ -1,6 +1,12 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
+##The makeCacheMatrix creates the set, get, setmatrix, getmatrix functions.
+##These are accessible via the list(...).
+
+##cacheSolve checks for a cached matrix. If found (i.e. not NULL), it returns
+##the value. If not, it calculates a new value and cahces it for later access.
+
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -32,24 +38,8 @@ cacheSolve <- function(x, ...) {
       return(m)
   }
   
-  data <- x$get()
+  data <- x$get() 
   m <- solve(data, ...)
   x$setmatrix(m)
   m
 }
-
-
-# cachemean <- function(x, ...) {
-#   m <- x$getmean()
-#   if(!is.null(m)) {
-#     message("getting cached data")
-#     return(m)
-#   }
-#   data <- x$get()
-#   m <- mean(data, ...)
-#   x$setmean(m)
-#   m
-# }
-
-#--------------------------------------------------------
-
